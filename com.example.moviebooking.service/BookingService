@@ -1,0 +1,22 @@
+package com.example.moviebooking.service;
+
+import com.example.moviebooking.model.Ticket;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class BookingService {
+
+    private List<Ticket> bookings = new ArrayList<>();
+
+    public String bookTicket(Ticket ticket) {
+        bookings.add(ticket);
+        return "Ticket booked successfully for seat " + ticket.getSeatNumber();
+    }
+
+    public List<Ticket> getAllBookings() {
+        return bookings;
+    }
+}
